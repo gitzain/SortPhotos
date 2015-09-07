@@ -13,12 +13,12 @@ Organises photos into a neat folder structure.
 - [License](#license)
 
 ## Motivation
-I had a whole bunch of photos in a mess of folders. I created this script to organise my photos in a neat directory structure. This script will organise photos into a chronological folder structure.
+I had a whole bunch of photos in a mess of folders. I created this script to organise my photos in a neat directory structure. This script will organise photos into a chronological folder structure. The script will search and organise photos in all sub directories.
 
 ## Installation & Usage
 
 ### Installation
-Download a copy of the files to the photos folder with all the photos you wish to sort. The script will search and organise photos in all sub directories.
+Use the download button on the right hand side to download the necessary files. Extract/unpack the files and navigate to the directory using the commandline.
 
 ### Usage
 TODO: Write usage instructions
