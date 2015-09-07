@@ -34,7 +34,10 @@ TODO: Write usage instructions
 21/06/15: v1 published on github.
 
 ## Credits
-TODO: Write credits
+- https://github.com/andrewning/sortphotos
+- http://www.sno.phy.queensu.ca/~phil/exiftool/
 
 ## License
-The MIT License (MIT). Please check the license file for more infromation.
+Copyright (c) 2015, Zain Khan. All rights reserved.
+
+All code is licensed under The MIT License. Please see 'LICENCE' file for more information.
