@@ -4,7 +4,6 @@ Organises photos into a neat folder structure.
 ## Table of content
 
 - [Motivation](#motivation)
-- [Screenshots](#screenshots)
 - [Installation & Usage](#installation--usage)
     - [Installation](#installation)
     - [Usage](#usage)
@@ -14,15 +13,12 @@ Organises photos into a neat folder structure.
 - [License](#license)
 
 ## Motivation
-TODO: Describe why this project exists
-
-## Screenshots
-TODO: Screenshots of the app
+I had a whole bunch of photos in a mess of folders. I created this script to organise my photos in a neat directory structure. This script will organise photos into a chronological folder structure.
 
 ## Installation & Usage
 
 ### Installation
-TODO: Describe the installation process
+Download a copy of the files to the photos folder with all the photos you wish to sort. The script will search and organise photos in all sub directories.
 
 ### Usage
 TODO: Write usage instructions
@@ -35,10 +31,10 @@ TODO: Write usage instructions
 5. Submit a pull request :D
 
 ## History
-TODO: Write history
+21/06/15: v1 published on github.
 
 ## Credits
 TODO: Write credits
 
 ## License
-TODO: Write license
+The MIT License (MIT). Please check the license file for more infromation.
