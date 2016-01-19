@@ -1,4 +1,4 @@
-# SortPhotos
+# Sort Photos
 Organises photos into a neat folder structure.
 
 ## Table of content
