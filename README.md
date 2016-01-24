@@ -21,7 +21,9 @@ I had a whole bunch of photos in a mess of folders. I created this script to org
 Use the download button on the right hand side to download the necessary files. Extract/unpack the files and navigate to the directory using the commandline.
 
 ### Usage
-TODO: Write usage instructions
+```
+python sortphotos.py
+```
 
 ## Contributing
 1. Fork it!
