@@ -40,6 +40,4 @@ python sortphotos.py
 - http://www.sno.phy.queensu.ca/~phil/exiftool/
 
 ## License
-Copyright (c) 2015, Zain Khan. All rights reserved.
-
-All code is licensed under The MIT License. Please see 'LICENCE' file for more information.
+See the LICENSE file in this project's directory.
