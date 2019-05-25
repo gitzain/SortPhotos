@@ -36,8 +36,10 @@ python sortphotos.py
 21/06/15: v1 published on github.
 
 ## Credits
+- Created by <a href="https://iamzain.com">Zain Khan</a>.
 - https://github.com/andrewning/sortphotos
 - http://www.sno.phy.queensu.ca/~phil/exiftool/
+- Template for this README is <a href="https://github.com/gitzain/template-README">Template-README</a> created by <a href="https://iamzain.com">Zain Khan</a>
 
 ## License
 See the LICENSE file in this project's directory.
