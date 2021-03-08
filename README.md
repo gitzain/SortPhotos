@@ -22,7 +22,7 @@ Use the download button on the right hand side to download the necessary files. 
 
 ### Usage
 ```
-python sortphotos.py
+python sortphotos.py <source directory> <target directory>
 ```
 
 ## Contributing
@@ -37,8 +37,6 @@ python sortphotos.py
 
 ## Credits
 - Created by <a href="https://iamzain.com">Zain Khan</a>.
-- https://github.com/andrewning/sortphotos
-- http://www.sno.phy.queensu.ca/~phil/exiftool/
 - Template for this README is <a href="https://github.com/gitzain/template-README">Template-README</a> created by <a href="https://iamzain.com">Zain Khan</a>
 
 ## License
