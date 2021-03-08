@@ -34,6 +34,7 @@ python sortphotos.py <source directory> <target directory>
 
 ## History
 21/06/15: v1 published on github.
+08/02/21: v2 published
 
 ## Credits
 - Created by <a href="https://iamzain.com">Zain Khan</a>.
