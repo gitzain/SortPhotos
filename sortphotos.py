@@ -1,13 +1,8 @@
-import argparse, os, datetime, imghdr, pathlib, exif
+import argparse, os, datetime, imghdr, pathlib, exif, glob, ntpath
+
 
 def get_all_files(directory):
-    files_in_directory = []
-
-    for root, directories, files in os.walk(directory):
-        for item in files:
-            files_in_directory.append(os.path.join(root, item))
-
-    return files_in_directory
+    return list(glob.iglob(directory + '/**/*', recursive=True))
 
 
 def get_image_files(directory):
@@ -16,7 +11,7 @@ def get_image_files(directory):
     for file_path in get_all_files(directory):
         if imghdr.what(file_path):
             images_in_directory.append(file_path)
-    
+
     return images_in_directory
 
 
@@ -24,8 +19,12 @@ def fix_image_extentions(images_array):
     for image_path in images_array:
         image_extention = imghdr.what(image_path)
         if image_extention:
-            thisFile = pathlib.Path(image_path)
-            thisFile.rename(thisFile.with_suffix('.' + image_extention))
+            if image_extention not in pathlib.Path(image_path).suffix:
+                print("Fixing extention of " + image_path)
+                thisFile = pathlib.Path(image_path)
+                target = thisFile.with_suffix('.' + image_extention)
+                if not os.path.isfile(target):
+                    thisFile.rename(target)
 
 
 def get_metadata_tag(photo_path, tag):
@@ -36,18 +35,61 @@ def get_metadata_tag(photo_path, tag):
         return None
 
 
-def sort_photos(source_directory, target_directory, raise_exception=False):
-    for image in get_image_files(source_directory):
-        date_taken_string = get_metadata_tag(image, 'datetime_original')
+def get_datetime_from_metadata(photo_path):
+    metadata_tags = ['datetime_original', 'datetime']
+    for tag in metadata_tags:
+        date_taken_string = get_metadata_tag(photo_path, tag)
         if date_taken_string:
-            print("**********")
-            print("Processing: " + image)
-            date_take_object = datetime.datetime.strptime(date_taken_string, '%Y:%m:%d %H:%M:%S')
-            target_path = target_directory + "/" + date_take_object.strftime('%Y/%m/%Y-%m-%d %Hh%Mm%Ss') + pathlib.Path(image).suffix
-            print("Moving to: " + target_path)
-            os.makedirs(os.path.dirname(target_path), exist_ok=True)
-            os.replace(image, target_path)
+            return datetime.datetime.strptime(date_taken_string, '%Y:%m:%d %H:%M:%S')
+    return None
 
+
+def get_datetime_from_filename(photo_path):
+    filename_patterns = ['%Y%m%d-%Hh%Mm%Ss', '%B %d, %Y at %I%M%p', 'IMG-%Y%m%d-WA%H%M']
+    output = None
+    for pattern in filename_patterns:
+        filename = ntpath.basename(photo_path)
+        filename = os.path.splitext(filename)[0]
+        try:
+            output = datetime.datetime.strptime(filename, pattern)
+            return output
+        except:
+            continue
+    return output
+
+
+def move_photo(photo_path, target_directory, datetime_object):
+    target_path = target_directory + "/" + datetime_object.strftime('%Y/%m/%Y-%m-%d %Hh%Mm%Ss') + pathlib.Path(photo_path).suffix
+    while os.path.isfile(target_path):
+        new_datetime = datetime_object + 1
+        target_path = target_directory + "/" + new_datetime.strftime('%Y/%m/%Y-%m-%d %Hh%Mm%Ss') + pathlib.Path(photo_path).suffix
+    print("Moving to: " + target_path)
+    os.makedirs(os.path.dirname(target_path), exist_ok=True)
+    os.replace(photo_path, target_path)
+
+
+def sort_photos(source_directory, target_directory, raise_exception=False):
+    total = len(get_image_files(source_directory))
+    matched = 0
+
+    for image in get_image_files(source_directory):
+        print("**********")
+        print("Processing: " + image)
+
+        date_from_metadata = get_datetime_from_metadata(image)
+        if date_from_metadata:
+            move_photo(image, target_directory, date_from_metadata)
+            matched += 1
+            continue
+
+        date_from_filename = get_datetime_from_filename(image)
+        if date_from_filename:
+            move_photo(image, target_directory, date_from_filename)
+            matched += 1
+            continue
+
+    print("Total: " + str(total))
+    print("Matched: " + str(matched))
 
 
 if __name__ == "__main__":
