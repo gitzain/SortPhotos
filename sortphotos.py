@@ -40,12 +40,13 @@ def get_datetime_from_metadata(photo_path):
     for tag in metadata_tags:
         date_taken_string = get_metadata_tag(photo_path, tag)
         if date_taken_string:
+            print('Data taken string: ' + date_taken_string)
             return datetime.datetime.strptime(date_taken_string, '%Y:%m:%d %H:%M:%S')
     return None
 
 
 def get_datetime_from_filename(photo_path):
-    filename_patterns = ['%Y%m%d-%Hh%Mm%Ss', '%B %d, %Y at %I%M%p', 'IMG-%Y%m%d-WA%H%M']
+    filename_patterns = ['%Y%m%d-%Hh%Mm%Ss', '%B %d, %Y at %I%M%p', 'IMG-%Y%m%d-WA%H%M', 'Screenshot_%Y%m%d-%H%M%S']
     output = None
     for pattern in filename_patterns:
         filename = ntpath.basename(photo_path)
