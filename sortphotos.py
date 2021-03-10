@@ -1,14 +1,18 @@
-import argparse, os, datetime, imghdr, pathlib, exif, glob, ntpath
-
-
-def get_all_files(directory):
-    return list(glob.iglob(directory + '/**/*', recursive=True))
+import os
+import datetime
+import pathlib
+import glob
+import ntpath
+import argparse
+import exif
+import imghdr
 
 
 def get_image_files(directory):
-    images_in_directory = []
+    all_files_in_directory = list(glob.iglob(directory + '/**/*', recursive=True))
 
-    for file_path in get_all_files(directory):
+    images_in_directory = []
+    for file_path in all_files_in_directory:
         if imghdr.what(file_path):
             images_in_directory.append(file_path)
 
@@ -101,7 +105,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     if args.fix_extentions is not None:
-        fix_image_extentions(get_all_files(args.source))
+        fix_image_extentions(get_image_files(args.source))
 
     if not sort_photos(args.source, args.target):
         exit(1)

@@ -1,12 +1,15 @@
 # Sort Photos
-Organises photos into a neat folder structure.
+Organises photos into the following folder structure:
+```
+folder/2020/01/2020-01-01 15h23m00s.jpg
+```
 
 ## Table of content
 
 - [Motivation](#motivation)
 - [Installation & Usage](#installation--usage)
-    - [Installation](#installation)
-    - [Usage](#usage)
+  - [Installation](#installation)
+  - [Usage](#usage)
 - [Contributing](#contributing)
 - [History](#history)
 - [Credits](#credits)
@@ -18,12 +21,17 @@ I had a whole bunch of photos in a mess of folders. I created this script to org
 ## Installation & Usage
 
 ### Installation
-Use the download button on the right hand side to download the necessary files. Extract/unpack the files and navigate to the directory using the commandline.
+Download and run the sortphotos.py script like you would any other python script. Please see usage details below.
 
 ### Usage
 ```
 python sortphotos.py <source directory> <target directory>
 ```
+To see all the commands and features available type the following command:
+```
+python sortphotos.py --help
+```
+
 
 ## Contributing
 1. Fork it!
