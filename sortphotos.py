@@ -9,7 +9,7 @@ import imghdr
 
 
 def get_image_files(directory):
-    all_files_in_directory = list(glob.iglob(directory + '/**/*', recursive=True))
+    all_files_in_directory = list(glob.iglob(directory + '/**/*.*', recursive=True))
 
     images_in_directory = []
     for file_path in all_files_in_directory:
@@ -45,7 +45,10 @@ def get_datetime_from_metadata(photo_path):
         date_taken_string = get_metadata_tag(photo_path, tag)
         if date_taken_string:
             print('Data taken string: ' + date_taken_string)
-            return datetime.datetime.strptime(date_taken_string, '%Y:%m:%d %H:%M:%S')
+            try:
+                return datetime.datetime.strptime(date_taken_string, '%Y:%m:%d %H:%M:%S')
+            except:
+                print("ERROR Processing: " + photo_path)
     return None
 
 
@@ -66,7 +69,7 @@ def get_datetime_from_filename(photo_path):
 def move_photo(photo_path, target_directory, datetime_object):
     target_path = target_directory + "/" + datetime_object.strftime('%Y/%m/%Y-%m-%d %Hh%Mm%Ss') + pathlib.Path(photo_path).suffix
     while os.path.isfile(target_path):
-        new_datetime = datetime_object + 1
+        new_datetime = datetime_object + datetime.timedelta(seconds=1)
         target_path = target_directory + "/" + new_datetime.strftime('%Y/%m/%Y-%m-%d %Hh%Mm%Ss') + pathlib.Path(photo_path).suffix
     print("Moving to: " + target_path)
     os.makedirs(os.path.dirname(target_path), exist_ok=True)
