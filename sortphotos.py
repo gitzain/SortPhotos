@@ -9,7 +9,7 @@ import imghdr
 
 
 def get_image_files(directory):
-    all_files_in_directory = list(glob.iglob(directory + '/**/*', recursive=True))
+    all_files_in_directory = list(glob.iglob(directory + '/**/*.*', recursive=True))
 
     images_in_directory = []
     for file_path in all_files_in_directory:
