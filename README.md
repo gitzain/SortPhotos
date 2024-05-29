@@ -1,5 +1,5 @@
 # Snapsort
-Organises photos in a source forlder into a target folder into the following folder structure:
+Snapsort is a Python script that organizes photos from a source folder into a target folder by date and time, using the format:
 ```
 folder/YYYY/MM/YYYY-MM-DD 00h00m00s.jpg
 ```
