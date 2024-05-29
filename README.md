@@ -1,19 +1,21 @@
-# Sort Photos
-Organises photos into the following folder structure:
+# Snapsort
+Organises photos in a source forlder into a target folder into the following folder structure:
 ```
-folder/2020/01/2020-01-01 15h23m00s.jpg
+folder/YYYY/MM/YYYY-MM-DD 00h00m00s.jpg
 ```
 
 ## Table of content
 
-- [Motivation](#motivation)
-- [Installation & Usage](#installation--usage)
-  - [Installation](#installation)
-  - [Usage](#usage)
-- [Contributing](#contributing)
-- [History](#history)
-- [Credits](#credits)
-- [License](#license)
+- [Snapsort](#snapsort)
+  - [Table of content](#table-of-content)
+  - [Motivation](#motivation)
+  - [Installation \& Usage](#installation--usage)
+    - [Installation](#installation)
+    - [Usage](#usage)
+  - [Contributing](#contributing)
+  - [History](#history)
+  - [Credits](#credits)
+  - [License](#license)
 
 ## Motivation
 I had a whole bunch of photos in a mess of folders. I created this script to organise my photos in a neat directory structure. This script will organise photos into a chronological folder structure. The script will search and organise photos in all sub directories.
@@ -21,15 +23,15 @@ I had a whole bunch of photos in a mess of folders. I created this script to org
 ## Installation & Usage
 
 ### Installation
-Download and run the sortphotos.py script like you would any other python script. Please see usage details below.
+Download and run the snapsort.py script like you would any other python script. Please see usage details below.
 
 ### Usage
 ```
-python sortphotos.py <source directory> <target directory>
+python snapsort.py <source directory> <target directory>
 ```
 To see all the commands and features available type the following command:
 ```
-python sortphotos.py --help
+python snapsort.py --help
 ```
 
 
