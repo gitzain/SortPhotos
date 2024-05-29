@@ -5,17 +5,15 @@ folder/YYYY/MM/YYYY-MM-DD 00h00m00s.jpg
 ```
 
 ## Table of content
-
-- [Snapsort](#snapsort)
-  - [Table of content](#table-of-content)
-  - [Motivation](#motivation)
-  - [Installation \& Usage](#installation--usage)
+- [Table of content](#table-of-content)
+- [Motivation](#motivation)
+- [Installation \& Usage](#installation--usage)
     - [Installation](#installation)
     - [Usage](#usage)
-  - [Contributing](#contributing)
-  - [History](#history)
-  - [Credits](#credits)
-  - [License](#license)
+- [Contributing](#contributing)
+- [History](#history)
+- [Credits](#credits)
+- [License](#license)
 
 ## Motivation
 I had a whole bunch of photos in a mess of folders. I created this script to organise my photos in a neat directory structure. This script will organise photos into a chronological folder structure. The script will search and organise photos in all sub directories.
